@@ -34,7 +34,7 @@ spec:
           value: "http://cliente-service:80"
         - name: URL_COMPRA
           value: "http://compra-service:80"
-        - name: URL_FAV
+        - name: URL_FAVORITO
           value: "http://favoritos-service:80"
         - name: URL_JWT
           value: "http://jwt-service:80"
@@ -42,5 +42,5 @@ spec:
           value: "http://notificacion-service:80"
         - name: URL_RASTREO
           value: "http://rastreo-service:80"
-        - name: URL_REP
+        - name: URL_REPORT
           value: "http://reportes-service:80"
