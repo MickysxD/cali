@@ -33,7 +33,7 @@ spec:
         - name: db_user
           value: "admin"
         - name: db_pass
-          value: "Softwareavanzad0"
+          value: "S0ftwareavanzad0"
         - name: db_host
           value: "sa.cz3pvq6x9ohw.us-west-2.rds.amazonaws.com"
         - name: db_name
@@ -47,6 +47,6 @@ spec:
         - name: MYSQL_USER
           value: "admin"
         - name: MYSQL_PASSWORD
-          value: "Softwareavanzad0"
+          value: "S0ftwareavanzad0"
         - name: MYSQL_DB
           value: "SA"

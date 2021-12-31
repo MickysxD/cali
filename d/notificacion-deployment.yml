@@ -33,7 +33,7 @@ spec:
         - name: MYSQL_USER
           value: "admin"
         - name: MYSQL_PASSWORD
-          value: "Softwareavanzad0"
+          value: "S0ftwareavanzad0"
         - name: MYSQL_DB
           value: "SA"
         - name: EMAIL
