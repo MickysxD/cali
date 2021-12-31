@@ -1,0 +1,38 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: compra-deployment
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: compra-sa
+  minReadySeconds: 20
+  strategy:
+    rollingUpdate:
+      maxSurge: 1
+      maxUnavailable: 0
+    type: RollingUpdate
+  template:
+    metadata:
+      labels:
+        app: compra-sa
+    spec:
+      containers:
+      - name: compra
+        image: mickyxd/comprasa:latest
+        ports:
+        - containerPort: 80
+        env:
+        - name: PORT
+          value: "80"
+        - name: db_port
+          value: "3306"
+        - name: db_user
+          value: "admin"
+        - name: db_pass
+          value: "Softwareavanzad0"
+        - name: db_host
+          value: "sa.cz3pvq6x9ohw.us-west-2.rds.amazonaws.com"
+        - name: db_name
+          value: "SA"

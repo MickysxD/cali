@@ -1,0 +1,48 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: cliente-deployment
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: cliente-sa
+  minReadySeconds: 20
+  strategy:
+    rollingUpdate:
+      maxSurge: 1
+      maxUnavailable: 0
+    type: RollingUpdate
+  template:
+    metadata:
+      labels:
+        app: cliente-sa
+    spec:
+      containers:
+      - name: cliente
+        image: mickyxd/clientesa:latest
+        ports:
+        - containerPort: 80
+        env:
+        - name: PORT
+          value: "80"
+        - name: db_port
+          value: "3302"
+        - name: db_user
+          value: "root"
+        - name: db_pass
+          value: "p@Ssw0Rd1234"
+        - name: db_host
+          value: "34.136.151.30"
+        - name: db_name
+          value: "SA"
+        - name: MYSQL_HOST
+          value: "34.136.151.30"
+        - name: MYSQL_PORT
+          value: "3302"
+        - name: MYSQL_USER
+          value: "root"
+        - name: MYSQL_PASSWORD
+          value: "p@Ssw0Rd1234"
+        - name: MYSQL_DB
+          value: "SA"

@@ -1,0 +1,12 @@
+apiVersion: v1
+kind: Service
+metadata:
+  name: compra-service
+spec:
+  type: ClusterIP
+  #type: LoadBalancer
+  ports:
+    - port: 80 #Externo
+      targetPort: 80 #Interno
+  selector:
+    app: compra-sa

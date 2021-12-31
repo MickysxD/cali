@@ -1,0 +1,46 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: esb-deployment
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: esb-sa
+  minReadySeconds: 20
+  strategy:
+    rollingUpdate:
+      maxSurge: 1
+      maxUnavailable: 0
+    type: RollingUpdate
+  template:
+    metadata:
+      labels:
+        app: esb-sa
+    spec:
+      containers:
+      - name: esb
+        image: mickyxd/esbsa:latest
+        ports:
+        - containerPort: 80
+        env:
+        - name: PORT
+          value: "80"
+        - name: SECRET
+          value: "grupo1"
+        - name: URL_ADMIN
+          value: "http://administrador-service:80"
+        - name: URL_CLIENTE
+          value: "http://cliente-service:80"
+        - name: URL_COMPRA
+          value: "http://compra-service:80"
+        - name: URL_FAV
+          value: "http://favoritos-service:80"
+        - name: URL_JWT
+          value: "http://jwt-service:80"
+        - name: URL_NOTI
+          value: "http://notificacion-service:80"
+        - name: URL_RASTREO
+          value: "http://rastreo-service:80"
+        - name: URL_REP
+          value: "http://reportes-service:80"
